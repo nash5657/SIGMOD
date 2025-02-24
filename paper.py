@@ -28,7 +28,7 @@ def generate_dataset(num_objects=200, num_keywords=10, area_size=(100, 100)):
 # Generate dataset
 dataset = generate_dataset(num_objects=100, num_keywords=20)
 df = pd.DataFrame(dataset, columns=["ObjectID", "Location", "Context"])
-print(df.head())  # Preview dataset
+#print(df.head())  # Preview dataset
 
 #step2
 def compute_jaccard_similarity(set1, set2):
@@ -65,7 +65,7 @@ def micro_set_jaccard_hashing(dataset):
 
 # Compute Jaccard similarities
 jaccard_similarities = micro_set_jaccard_hashing(dataset)
-print(list(jaccard_similarities.items())[:5])  # Preview some similarities
+#print(list(jaccard_similarities.items())[:5])  # Preview some similarities
 
 
 #step3
@@ -108,7 +108,7 @@ def compute_spatial_similarity(grid):
 # Create grid and compute spatial similarities
 grid, (cell_width, cell_height) = create_grid(dataset, grid_size=(10, 10))
 spatial_similarities = compute_spatial_similarity(grid)
-print(list(spatial_similarities.items())[:5])  # Preview some similarities
+#print(list(spatial_similarities.items())[:5])  # Preview some similarities
 
 #step4
 def greedy_IAdU(dataset, jaccard_similarities, spatial_similarities, k=10):
@@ -165,8 +165,8 @@ def greedy_ABP(dataset, jaccard_similarities, spatial_similarities, k=10):
 selected_IAdU = greedy_IAdU(dataset, jaccard_similarities, spatial_similarities, k=10)
 selected_ABP = greedy_ABP(dataset, jaccard_similarities, spatial_similarities, k=10)
 
-print("Selected objects (IAdU):", selected_IAdU)
-print("Selected objects (ABP):", selected_ABP)
+#print("Selected objects (IAdU):", selected_IAdU)
+#print("Selected objects (ABP):", selected_ABP)
 
 #step5
 import time
@@ -180,8 +180,8 @@ start_time = time.time()
 greedy_ABP(dataset, jaccard_similarities, spatial_similarities, k=10)
 ABP_time = time.time() - start_time
 
-print(f"IAdU Execution Time: {IAdU_time:.4f} seconds")
-print(f"ABP Execution Time: {ABP_time:.4f} seconds")
+#print(f"IAdU Execution Time: {IAdU_time:.4f} seconds")
+#print(f"ABP Execution Time: {ABP_time:.4f} seconds")
 
 
 
@@ -203,7 +203,7 @@ def baseline_jaccard_similarity(dataset):
 
 # Compute baseline Jaccard similarities
 baseline_jaccard_similarities = baseline_jaccard_similarity(dataset)
-print(list(baseline_jaccard_similarities.items())[:5])  # Preview some results
+#print(list(baseline_jaccard_similarities.items())[:5])  # Preview some results
 
 #Baseline 2: Spatial Proportionality (Brute-force Euclidean Distance)
 def baseline_spatial_similarity(dataset):
@@ -222,7 +222,7 @@ def baseline_spatial_similarity(dataset):
 
 # Compute baseline spatial similarities
 baseline_spatial_similarities = baseline_spatial_similarity(dataset)
-print(list(baseline_spatial_similarities.items())[:5])  # Preview some results
+#print(list(baseline_spatial_similarities.items())[:5])  # Preview some results
 
 #Baseline 3: Random Selection (Naive Approach)
 def baseline_random_selection(dataset, k=10):
@@ -233,7 +233,7 @@ def baseline_random_selection(dataset, k=10):
 
 # Run baseline selection
 baseline_random_selection_result = baseline_random_selection(dataset, k=10)
-print("Baseline Random Selection:", baseline_random_selection_result)
+#print("Baseline Random Selection:", baseline_random_selection_result)
 
 
 #Baseline 4: Top-k Selection (Based on Relevance Only)
@@ -255,7 +255,7 @@ def baseline_top_k_selection(dataset, jaccard_similarities, spatial_similarities
 
 # Run baseline top-k selection
 baseline_top_k_result = baseline_top_k_selection(dataset, baseline_jaccard_similarities, baseline_spatial_similarities, k=10)
-print("Baseline Top-k Selection:", baseline_top_k_result)
+#print("Baseline Top-k Selection:", baseline_top_k_result)
 
 #Compare Execution Time of Baseline vs Optimized
 # Measure execution time
