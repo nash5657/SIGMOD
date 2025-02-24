@@ -1,1 +1,1 @@
-An experiment of recreating the proposed alogorithem in the papper
+An experiment to recreate the proposed algorithm in the paper
